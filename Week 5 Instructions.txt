@@ -48,7 +48,8 @@ Sadly, my code is buggy and you need to fix it. :) I have left TODO comments in 
 
 Things to fix:
 Store class:
-* Store constructor creates a store with multiple employees, but a manager was never assigned to the store class. You need to set the manager correctly in the store constructor.
+* Store constructor creates a store with multiple employees, but a manager was never assigned to the store class.
+ You need to set the manager correctly in the store constructor.
 * Manager is trying to StockSelves in the main method. How can this be fixed?
 
 Employee class

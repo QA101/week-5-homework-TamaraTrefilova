@@ -6,13 +6,14 @@ public class Store {
 	Manager manager;
 	
 	public static void main(String[] args) {
-		Store s = new Store();
+		Manager manager = new Manager("John", 6000, 5);
+		Store s = new Store(manager);
 		s.PrintEmployees();
 		System.out.println();
 		s.PrintManager();
 		
-		//TODO: The manager doesn't know how to StockShelfs.
-		Manager.StockSelf();
+		//TODO: The manager doesn't know how to StockShelves.
+		Manager.StockShelves();
 		
 		/**
 		 * Challenge Concept: try/catch and throwing an exception
@@ -24,10 +25,13 @@ public class Store {
 		s.PrintEmployees();
 	}
 	
-	public Store() {
+	public Store(Manager manager) {
+		this.manager = manager;
 		//Notice I am using different constructors for Employees
+		employees.add(manager);
 		employees.add(new Employee("Tom"));
 		employees.add(new Employee("Jane", 40000));
+		
 		
 		/*
 		 * This add statement will not work until the Manager class has been extended
@@ -35,13 +39,13 @@ public class Store {
 		 * 
 		 * TODO: assign the manager for the store class and add the manager to the employee list
 		 */
-		employees.add(new Manager("Tim", 50000, 5));
+		employees.add(new Employee("Tim", 50000));
 		
 		//Notice that I can put a manager inside a list of employees because Manager is a subclass of Employee.
 	}
 	
 	public void PrintEmployees() {
-		System.out.println("Employees");
+		System.out.println("Employees:");
 		for(Employee e : employees) {
 			System.out.println(e);
 		}
@@ -60,7 +64,7 @@ public class Store {
 			employees.add(manager.HireEmployee(employees.size(), "Sasha"));
 		}
 		catch(Exception e) {
-			//do nothing
+			System.out.println("Number of empoyee is exceeded, cannot hire more than "+this.manager.maxSize);
 		}
 	}
 

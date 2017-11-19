@@ -3,7 +3,7 @@
  * 
  * TODO write the syntax for the Manager class to Extend the Employee class
  */
-public class Manager{
+public class Manager extends Employee{
 	//maxSize is the total amount of employees that this manager can support
 	int maxSize;
 	
@@ -12,8 +12,7 @@ public class Manager{
 	 * Without extending employee, the manager class does not understand the variables name and salary
 	 */
 	public Manager(String name, int salary, int maxSize) {
-		this.name = name;
-		this.salary = salary;
+		super(name,salary);
 		this.maxSize = maxSize;
 	}
 	
@@ -33,5 +32,19 @@ public class Manager{
 		else {
 			throw new Exception();
 		}
+	}
+
+	public String toString() {
+		return "Manager: " +this.name+", salary: "+this.salary;
+	}
+	
+	public static void StockShelves() {
+		Stocker stocker = new Stocker();
+		while(stocker.StockShelves()) {
+			stocker.StockShelves();
+		}	
+		int num = stocker.shelves;
+		System.out.println("Number of finished shelves is: "+ num);
+		
 	}
 }
